@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kauf">
+    <Key>
+      <PropertyRef Name="K_ID" />
+    </Key>
+    <Property Name="K_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="K_Shop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="K_Datum" Type="DateTime" Precision="3" />
+    <Property Name="K_Preis" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="K_P_ID" Type="Int32" />
+    <NavigationProperty Name="Pflanzen" Relationship="Self.FK_Kauf_Pflanzen" FromRole="Kauf" ToRole="Pflanzen" />
+    <NavigationProperty Name="Pflanzens" Relationship="Self.FK_Pflanzen_Kauf" FromRole="Kauf" ToRole="Pflanzen" />
+  </EntityType>
+  <EntityType Name="Pflanzen">
+    <Key>
+      <PropertyRef Name="P_ID" />
+    </Key>
+    <Property Name="P_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_Gepflanzt" Type="DateTime" Precision="0" />
+    <Property Name="P_Kauf" Type="Int32" />
+    <Property Name="P_Topf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_Standort" Type="Int32" />
+    <Property Name="P_Steckbrief" Type="Int32" />
+    <Property Name="P_Bluet_Von" Type="DateTime" Precision="0" />
+    <Property Name="P_Bluet_Bis" Type="DateTime" Precision="0" />
+    <Property Name="P_Notiz" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="P_Schaedling" Type="Int32" />
+    <NavigationProperty Name="Kaufs" Relationship="Self.FK_Kauf_Pflanzen" FromRole="Pflanzen" ToRole="Kauf" />
+    <NavigationProperty Name="Kauf" Relationship="Self.FK_Pflanzen_Kauf" FromRole="Pflanzen" ToRole="Kauf" />
+    <NavigationProperty Name="Schaedling" Relationship="Self.FK_Pflanzen_Schaedling" FromRole="Pflanzen" ToRole="Schaedling" />
+    <NavigationProperty Name="Standort" Relationship="Self.FK_Pflanzen_Standort" FromRole="Pflanzen" ToRole="Standort" />
+    <NavigationProperty Name="Steckbrief" Relationship="Self.FK_Pflanzen_Steckbrief" FromRole="Pflanzen" ToRole="Steckbrief" />
+    <NavigationProperty Name="Topf" Relationship="Self.FK_Pflanzen_Topf" FromRole="Pflanzen" ToRole="Topf" />
+    <NavigationProperty Name="Schaedlings" Relationship="Self.FK_Schaedling_Pflanzen" FromRole="Pflanzen" ToRole="Schaedling" />
+  </EntityType>
+  <EntityType Name="Schaedling">
+    <Key>
+      <PropertyRef Name="S_ID" />
+    </Key>
+    <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="S_P_ID" Type="Int32" />
+    <Property Name="S_Gegenmittel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="S_Dat_letzteAnwendung" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Pflanzens" Relationship="Self.FK_Pflanzen_Schaedling" FromRole="Schaedling" ToRole="Pflanzen" />
+    <NavigationProperty Name="Pflanzen" Relationship="Self.FK_Schaedling_Pflanzen" FromRole="Schaedling" ToRole="Pflanzen" />
+  </EntityType>
+  <EntityType Name="Standort">
+    <Key>
+      <PropertyRef Name="SO_ID" />
+    </Key>
+    <Property Name="SO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SO_Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pflanzens" Relationship="Self.FK_Pflanzen_Standort" FromRole="Standort" ToRole="Pflanzen" />
+    <NavigationProperty Name="Topfs" Relationship="Self.FK_Topf_Standort" FromRole="Standort" ToRole="Topf" />
+  </EntityType>
+  <EntityType Name="Steckbrief">
+    <Key>
+      <PropertyRef Name="ST_ID" />
+    </Key>
+    <Property Name="ST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ST_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ST_Art" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ST_GuteNachbar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ST_Hoehe" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ST_Wurzeltiefe" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ST_Bild" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Pflanzens" Relationship="Self.FK_Pflanzen_Steckbrief" FromRole="Steckbrief" ToRole="Pflanzen" />
+  </EntityType>
+  <EntityType Name="Topf">
+    <Key>
+      <PropertyRef Name="T_ID" />
+    </Key>
+    <Property Name="T_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="T_Breite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="T_Tiefe" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="T_Hoehe" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="T_Standort" Type="Int32" />
+    <NavigationProperty Name="Pflanzens" Relationship="Self.FK_Pflanzen_Topf" FromRole="Topf" ToRole="Pflanzen" />
+    <NavigationProperty Name="Standort" Relationship="Self.FK_Topf_Standort" FromRole="Topf" ToRole="Standort" />
+  </EntityType>
+  <Association Name="FK_Kauf_Pflanzen">
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="0..1" />
+    <End Role="Kauf" Type="Self.Kauf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pflanzen">
+        <PropertyRef Name="P_ID" />
+      </Principal>
+      <Dependent Role="Kauf">
+        <PropertyRef Name="K_P_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pflanzen_Kauf">
+    <End Role="Kauf" Type="Self.Kauf" Multiplicity="0..1" />
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kauf">
+        <PropertyRef Name="K_ID" />
+      </Principal>
+      <Dependent Role="Pflanzen">
+        <PropertyRef Name="P_Kauf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pflanzen_Schaedling">
+    <End Role="Schaedling" Type="Self.Schaedling" Multiplicity="0..1" />
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schaedling">
+        <PropertyRef Name="S_ID" />
+      </Principal>
+      <Dependent Role="Pflanzen">
+        <PropertyRef Name="P_Schaedling" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pflanzen_Standort">
+    <End Role="Standort" Type="Self.Standort" Multiplicity="0..1" />
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standort">
+        <PropertyRef Name="SO_ID" />
+      </Principal>
+      <Dependent Role="Pflanzen">
+        <PropertyRef Name="P_Standort" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pflanzen_Steckbrief">
+    <End Role="Steckbrief" Type="Self.Steckbrief" Multiplicity="0..1" />
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Steckbrief">
+        <PropertyRef Name="ST_ID" />
+      </Principal>
+      <Dependent Role="Pflanzen">
+        <PropertyRef Name="P_Steckbrief" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pflanzen_Topf">
+    <End Role="Topf" Type="Self.Topf" Multiplicity="0..1" />
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topf">
+        <PropertyRef Name="T_ID" />
+      </Principal>
+      <Dependent Role="Pflanzen">
+        <PropertyRef Name="P_Topf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schaedling_Pflanzen">
+    <End Role="Pflanzen" Type="Self.Pflanzen" Multiplicity="0..1" />
+    <End Role="Schaedling" Type="Self.Schaedling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pflanzen">
+        <PropertyRef Name="P_ID" />
+      </Principal>
+      <Dependent Role="Schaedling">
+        <PropertyRef Name="S_P_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topf_Standort">
+    <End Role="Standort" Type="Self.Standort" Multiplicity="0..1" />
+    <End Role="Topf" Type="Self.Topf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standort">
+        <PropertyRef Name="SO_ID" />
+      </Principal>
+      <Dependent Role="Topf">
+        <PropertyRef Name="T_Standort" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FloraEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kaufs" EntityType="Self.Kauf" />
+    <EntitySet Name="Pflanzens" EntityType="Self.Pflanzen" />
+    <EntitySet Name="Schaedlings" EntityType="Self.Schaedling" />
+    <EntitySet Name="Standorts" EntityType="Self.Standort" />
+    <EntitySet Name="Steckbriefs" EntityType="Self.Steckbrief" />
+    <EntitySet Name="Topfs" EntityType="Self.Topf" />
+    <AssociationSet Name="FK_Kauf_Pflanzen" Association="Self.FK_Kauf_Pflanzen">
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+      <End Role="Kauf" EntitySet="Kaufs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pflanzen_Kauf" Association="Self.FK_Pflanzen_Kauf">
+      <End Role="Kauf" EntitySet="Kaufs" />
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pflanzen_Schaedling" Association="Self.FK_Pflanzen_Schaedling">
+      <End Role="Schaedling" EntitySet="Schaedlings" />
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pflanzen_Standort" Association="Self.FK_Pflanzen_Standort">
+      <End Role="Standort" EntitySet="Standorts" />
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pflanzen_Steckbrief" Association="Self.FK_Pflanzen_Steckbrief">
+      <End Role="Steckbrief" EntitySet="Steckbriefs" />
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pflanzen_Topf" Association="Self.FK_Pflanzen_Topf">
+      <End Role="Topf" EntitySet="Topfs" />
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schaedling_Pflanzen" Association="Self.FK_Schaedling_Pflanzen">
+      <End Role="Pflanzen" EntitySet="Pflanzens" />
+      <End Role="Schaedling" EntitySet="Schaedlings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topf_Standort" Association="Self.FK_Topf_Standort">
+      <End Role="Standort" EntitySet="Standorts" />
+      <End Role="Topf" EntitySet="Topfs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
