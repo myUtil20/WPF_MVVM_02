@@ -7,7 +7,7 @@ An organisation app implemented with Visual Studio WPF App (.NET Framework) usin
 
 
 ## User Interface
-![grafik](https://user-images.githubusercontent.com/78412795/106806153-dff56c80-6667-11eb-82cb-75200d12948c.png)
+![grafik](https://user-images.githubusercontent.com/78412795/107229291-ea27ba00-6a1d-11eb-9dbd-ce212788f3e8.png)
 
 ![grafik](https://user-images.githubusercontent.com/78412795/107220958-489b6b00-6a13-11eb-8d92-a6de996a4f77.png)
 
