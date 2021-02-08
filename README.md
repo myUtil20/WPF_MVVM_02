@@ -1,6 +1,6 @@
 
 # WPF App (.NET Framework) MVVM
-Application for a residential community that wants to manage their plants together
+Application for a residential community that wants to manage their plants together.
 
 ## OverView
 An organisation app implemented with Visual Studio WPF App (.NET Framework) using the MVVM design pattern.
