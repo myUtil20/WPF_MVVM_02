@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f81adf8d18f44cc3a334ba4d22b0a7ca" Name="Diagram1">
+        <EntityTypeShape EntityType="DbCityFloraModel.Kauf" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCityFloraModel.Pflanzen" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCityFloraModel.Schaedling" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCityFloraModel.Standort" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCityFloraModel.Steckbrief" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCityFloraModel.Topf" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Kauf_Pflanzen" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Pflanzen_Kauf" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Pflanzen_Schaedling" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Pflanzen_Standort" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Pflanzen_Steckbrief" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Pflanzen_Topf" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Schaedling_Pflanzen" ManuallyRouted="false" />
+        <AssociationConnector Association="DbCityFloraModel.FK_Topf_Standort" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

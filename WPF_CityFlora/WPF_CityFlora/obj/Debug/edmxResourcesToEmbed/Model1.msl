@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbCityFloraModelStoreContainer" CdmEntityContainer="FloraEntities">
+    <EntitySetMapping Name="Kaufs">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Kauf">
+        <MappingFragment StoreEntitySet="Kauf">
+          <ScalarProperty Name="K_ID" ColumnName="K_ID" />
+          <ScalarProperty Name="K_Shop" ColumnName="K_Shop" />
+          <ScalarProperty Name="K_Datum" ColumnName="K_Datum" />
+          <ScalarProperty Name="K_Preis" ColumnName="K_Preis" />
+          <ScalarProperty Name="K_P_ID" ColumnName="K_P_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pflanzens">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Pflanzen">
+        <MappingFragment StoreEntitySet="Pflanzen">
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="P_Name" ColumnName="P_Name" />
+          <ScalarProperty Name="P_Gepflanzt" ColumnName="P_Gepflanzt" />
+          <ScalarProperty Name="P_Kauf" ColumnName="P_Kauf" />
+          <ScalarProperty Name="P_Topf" ColumnName="P_Topf" />
+          <ScalarProperty Name="P_Standort" ColumnName="P_Standort" />
+          <ScalarProperty Name="P_Steckbrief" ColumnName="P_Steckbrief" />
+          <ScalarProperty Name="P_Bluet_Von" ColumnName="P_Bluet_Von" />
+          <ScalarProperty Name="P_Bluet_Bis" ColumnName="P_Bluet_Bis" />
+          <ScalarProperty Name="P_Notiz" ColumnName="P_Notiz" />
+          <ScalarProperty Name="P_Schaedling" ColumnName="P_Schaedling" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schaedlings">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Schaedling">
+        <MappingFragment StoreEntitySet="Schaedling">
+          <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+          <ScalarProperty Name="S_Bez" ColumnName="S_Bez" />
+          <ScalarProperty Name="S_P_ID" ColumnName="S_P_ID" />
+          <ScalarProperty Name="S_Gegenmittel" ColumnName="S_Gegenmittel" />
+          <ScalarProperty Name="S_Dat_letzteAnwendung" ColumnName="S_Dat_letzteAnwendung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Standorts">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Standort">
+        <MappingFragment StoreEntitySet="Standort">
+          <ScalarProperty Name="SO_ID" ColumnName="SO_ID" />
+          <ScalarProperty Name="SO_Bez" ColumnName="SO_Bez" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Steckbriefs">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Steckbrief">
+        <MappingFragment StoreEntitySet="Steckbrief">
+          <ScalarProperty Name="ST_ID" ColumnName="ST_ID" />
+          <ScalarProperty Name="ST_Name" ColumnName="ST_Name" />
+          <ScalarProperty Name="ST_Art" ColumnName="ST_Art" />
+          <ScalarProperty Name="ST_GuteNachbar" ColumnName="ST_GuteNachbar" />
+          <ScalarProperty Name="ST_Hoehe" ColumnName="ST_Hoehe" />
+          <ScalarProperty Name="ST_Wurzeltiefe" ColumnName="ST_Wurzeltiefe" />
+          <ScalarProperty Name="ST_Bild" ColumnName="ST_Bild" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topfs">
+      <EntityTypeMapping TypeName="DbCityFloraModel.Topf">
+        <MappingFragment StoreEntitySet="Topf">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="T_Breite" ColumnName="T_Breite" />
+          <ScalarProperty Name="T_Tiefe" ColumnName="T_Tiefe" />
+          <ScalarProperty Name="T_Hoehe" ColumnName="T_Hoehe" />
+          <ScalarProperty Name="T_Standort" ColumnName="T_Standort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

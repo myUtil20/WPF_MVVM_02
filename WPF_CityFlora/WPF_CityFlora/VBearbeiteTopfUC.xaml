@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="WPF_CityFlora.VBearbeiteTopfUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_CityFlora"
+             xmlns:localv="clr-namespace:WPF_CityFlora.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="vm" ObjectType="{x:Type localv:VMBearbeiteTopf}"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource vm}}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="22*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Alle Blümentöpfe" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Blumentopfdaten" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+        <ListBox Grid.Row="1" Grid.Column="0" 
+                 ItemsSource="{Binding Path=AlleTopfe}"
+                 DisplayMemberPath="T_ID"
+                 SelectedValue="{Binding Path=SelectedTopf,Mode=TwoWay,BindsDirectlyToSource=True}" Margin="0 0 0 5"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1"  Margin="10">
+
+            <StackPanel DataContext="{Binding Path=SelectedTopf}">
+
+                <TextBlock Margin="0 8 0 0" Text="Blumentopf ID:" FontWeight="Bold"/>
+                <TextBox Margin="5" Text="{Binding T_ID}" />
+
+                <TextBlock Margin="0 8 0 0" Text="Breite:" FontWeight="Bold"/>
+                <TextBox Margin="5" Text="{Binding T_Breite}" />
+                <TextBlock Margin="0 8 0 0" Text="Tiefe:" FontWeight="Bold"/>
+                <TextBox Margin="5" Text="{Binding T_Tiefe}"/>
+                <TextBlock Margin="0 8 0 0" Text="Höhe:" FontWeight="Bold"/>
+                <TextBox Margin="5" Text="{Binding T_Hoehe}" />
+
+                <TextBlock Margin="0 8 0 0" Text="Standort:" FontWeight="Bold"/>
+                <ComboBox Margin="5 5 160 5" SelectedValue="{Binding Path=T_Standort}"
+                          ItemsSource="{Binding Source={StaticResource vm}, Path=AlleStandortT}"
+                          DisplayMemberPath="SO_Bez" 
+                          SelectedValuePath="SO_ID"/>
+
+            </StackPanel>
+
+
+            <Button Content="Blumentopf aktualisieren" Command="{Binding SaveCommand}" Margin="50 20 50 0"/>
+            <Button Content="Blumentopf hinzufügen" Command="{Binding NewCommand}" Margin="50 10 50 0"/>
+            <Button Content="Blumentopf löschen" Command="{Binding DeleteCommand}" Margin="50 10 50 0"/>
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>
